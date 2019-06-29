@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa'
 import { fetchPopularRepos } from "../utils/api"
+import Card from "./Card"
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
     const languages = ["All",
@@ -40,14 +41,12 @@ function ReposGrid({ repos }) {
                 const { login, avatar_url } = owner
 
                 return (
-                    <li key={html_url} className="card bg-light">
-                        <h4 className="header-lg center-text">
-                            #{index + 1}
-                        </h4>
-                        <img src={avatar_url} alt={`Avatar for ${login}`} className="avatar" />
-                        <h2 className="center-text">
-                            <a href={html_url} className="link">{login}</a>
-                        </h2>
+                    <Card
+                        header={`#${index + 1}`}
+                        avatar={avatar_url}
+                        href={html_url}
+                        name={login}
+                    >
                         <ul className="card-list">
                             <li>
                                 <FaUser color='rgb(255, 191, 116)' size={22} />
@@ -65,11 +64,9 @@ function ReposGrid({ repos }) {
                                 <FaExclamationTriangle color="rgba(241), 138, 147)" size={22} />
                                 {open_issues.toLocaleString()} open issues
                             </li>
-
                         </ul>
-                    </li>
+                    </Card>
                 )
-
             })}
         </ul>
     )
@@ -91,7 +88,6 @@ export default class Popular extends React.Component {
         this.updateLanguage = this.updateLanguage.bind(this)
         this.isLoading = this.isLoading.bind(this)
     }
-
 
     componentDidMount() {
         this.updateLanguage(this.state.selectedLanguage)
@@ -130,7 +126,6 @@ export default class Popular extends React.Component {
 
     }
 
-    // "rgba(187, 46,31)" className="btn-clear nav-link">
     render() {
         const { selectedLanguage, repos, error } = this.state
 
