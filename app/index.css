@@ -107,11 +107,11 @@ li{
     padding: 20px;
 }
 
-.repo a{
+.card a{
     text-decoration: none;
 }
 
-.repo img {
+.card img {
     margin-bottom: 8px;
 }
 
