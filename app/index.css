@@ -5,6 +5,12 @@ html, body, #app {
     width: 100%;
 }
 
+.dark{
+    color: #dadada;
+    background-color: #1c2822;
+    min-height: 100vw;
+}
+
 ul{
     padding:0;
 }
