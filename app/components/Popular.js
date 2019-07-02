@@ -48,6 +48,7 @@ function ReposGrid({ repos }) {
                         avatar={avatar_url}
                         href={html_url}
                         name={login}
+                        key={`#${index + 1}`}
                     >
                         <ul className="card-list">
                             <li>
