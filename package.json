@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "NODE_ENV='production' webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-for-windows": "SET NODE_ENV='production' && webpack"
   },
   "babel": {
     "presets": [
@@ -15,7 +15,7 @@
     ],
     "plugins": [
       "@babel/plugin-proposal-class-properties",
-      "syntax-dynamic-import"
+      "babel-plugin-syntax-dynamic-import"
     ]
   },
   "keywords": [],
